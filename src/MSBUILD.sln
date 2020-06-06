@@ -9,6 +9,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter01", "Chapter01", "{
 		chapter01\Dosomething.msbuild = chapter01\Dosomething.msbuild
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter02", "Chapter02", "{52F4F12C-DAB8-4E18-B8BD-90B4D1D8A534}"
+	ProjectSection(SolutionItems) = preProject
+		chapter02\args.rsp = chapter02\args.rsp
+		chapter02\Common.props = chapter02\Common.props
+		chapter02\Common.targets = chapter02\Common.targets
+		chapter02\DoSomething.msbuild = chapter02\DoSomething.msbuild
+		chapter02\DoSomething.proj = chapter02\DoSomething.proj
+		chapter02\DoSomething2.msbuild = chapter02\DoSomething2.msbuild
+		chapter02\DoSomething3.msbuild = chapter02\DoSomething3.msbuild
+		chapter02\DoSomethingCond.msbuild = chapter02\DoSomethingCond.msbuild
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter03", "Chapter03", "{408412C9-1823-4E0D-BF1C-6ABE5B643EFE}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
