@@ -26,7 +26,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter03", "Chapter03", "{
 		chapter03\args.rsp = chapter03\args.rsp
 		chapter03\Common.props = chapter03\Common.props
 		chapter03\Common.targets = chapter03\Common.targets
+		chapter03\CustomMSBuild.Tasks = chapter03\CustomMSBuild.Tasks
 		chapter03\DoSomething.proj = chapter03\DoSomething.proj
+		chapter03\DoSomethingCustom.proj = chapter03\DoSomethingCustom.proj
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TaskAssembly", "TaskAssembly", "{FEC37AA1-F15B-4072-BF0F-C2FB01AB94BF}"

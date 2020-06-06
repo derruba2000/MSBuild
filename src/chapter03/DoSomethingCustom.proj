@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Number1>3</Number1>
+    <Number2>10</Number2>
+  </PropertyGroup>
+  
+  
+  <Target Name="Math">
+    <Add2Numbers Number1="$(Number1)" Number2="$(Number2)">
+      <Output TaskParameter="Result" PropertyName="Sum"/>
+    </Add2Numbers>
+    <Message Text="The Result Sum:$(Sum)"/>
+
+    <Multiply2Numbers Number1="$(Number1)" Number2="$(Number2)">
+      <Output TaskParameter="Result" PropertyName="Mult"/>
+    </Multiply2Numbers>
+    <Message Text="The Result Multiply:$(Mult)"/>
+
+    <Divide2Numbers Number1="$(Number1)" Number2="$(Number2)">
+      <Output TaskParameter="Result" PropertyName="Div"/>
+    </Divide2Numbers>
+    <Message Text="The Result Divide:$(Div)"/>
+
+  </Target>
+  
+  <Target Name="PackageStuff">
+    <ItemGroup>
+      <FilestoZip Include="C:\Temp\PicsPath\*.*"/>
+    </ItemGroup>
+
+    <Message Text="Program Files:$(ProgramFiles), $(MSBuildExtensionsPath64)"></Message>
+    <MSBuild.ExtensionPack.Compression.DNZip
+        TaskAction="Create"
+        CompressFiles="@(FilestoZip)"
+        ZipFileName="c:\temp\Ziptest.zip">
+    </MSBuild.ExtensionPack.Compression.DNZip>
+  </Target>
+  
+  
+  
+  <Import Project="Common.props"/>
+  <Import Project="Common.targets"/>
+  <Import Project="CustomMSBuild.Tasks"/>
+  <Import Project="C:\Program Files\MSBuildExtensionPack\4.0\MSBuild.ExtensionPack.tasks"/>
+
+</Project>
