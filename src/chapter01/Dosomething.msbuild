@@ -1,6 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Target Name="HelloWorld">
-    <Message Text="Hello, World"></Message>
+<Project  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Name>Homer</Name>
+    <FullName>$(Name) Smith</FullName>
+    <PicsPath>C:\Temp\PicsPath\*.png</PicsPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Pics Include="$(PicsPath)"></Pics>
+  </ItemGroup>
+
+  <Target Name="ListPics">
+    <Message Text="@(Pics)"></Message>
+    <Message Text="@(Pics)->'%(ModifiedTime)'"></Message>
   </Target>
+  
+  <Target Name="HelloWorld" >
+    <Message Text="Hello, $(FullName)" Importance="high"></Message>
+  </Target>
+
+  <Target Name="GoodByeWorld">
+    <Message Text="Good bye Cruel World"></Message>
+  </Target>
+
+  <Target Name="ReservedProps">
+    <Message Text="MSBuildProjectDirectory:$(MSBuildProjectDirectory)"></Message>
+  </Target>
+  
 </Project>
