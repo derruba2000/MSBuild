@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <MSBuildExtensionsPath>$(MSBuildExtensionsPath64)</MSBuildExtensionsPath>
+    <ProjectDir>.\Autos</ProjectDir>
+    <SolutionFileName>$(ProjectDir)/Autos.sln</SolutionFileName>
+    <RunMSTest Condition="'$(RunMSTest)'==''">true</RunMSTest>
+    <OutputPath>c:\temp\out</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputPathWebFiles>$(OutputPath)\_PublishedWebsites\Auto.Web</OutputPathWebFiles>
+    <DeployDir>c:\temp\deploy</DeployDir>
+    <WebSiteName>Default</WebSiteName>
+    <AppPoolName>ASP.NET v4.0</AppPoolName>
+    <AppName>AutoWebDemo</AppName>
+  </PropertyGroup>
+
+
+
+</Project>

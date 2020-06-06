@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--EXTERNAL_PROPERTIES: DeployDir-->
+<!--EXTERNAL_PROPERTIES: OutputPathWebFiles;WebSiteName-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+	
+	<Target Name="Clean">
+    <RemoveDir Directories="$(OutputPath)\**" Condition="Exists($(OutputPath))" />
+  </Target>
+  
+  <Target Name="BuildSolution" DependsOnTargets="SetVersions;Clean">
+    <MSBuild Projects="$(SolutionFileName)" Properties="Configuration=Release;OutputPath=$(OutputPath)" />
+  </Target>
+
+  <Target Name="RunTests" DependsOnTargets="BuildSolution">
+
+    <ItemGroup>
+      <TestDLLs Include="$(OutputPath)\*Test.dll" />
+    </ItemGroup>
+
+    <Exec Command="MSTest.exe @(TestDLLs->'/testcontainer:%(FullPath)', ' ')" 
+          IgnoreExitCode="false" 
+          WorkingDirectory="$(OutputPath)">
+      <Output PropertyName="TestSuccess" TaskParameter="ExitCode"/>
+    </Exec>
+    
+    <Error Condition="TestSuccess == false"
+           
+
+  </Target>
+  
+  <Target Name="SetVersions">
+    <ItemGroup>
+      <AssemblyInfoFiles Include="$(ProjectDir)\**\AssemblyInfo.cs" />
+    </ItemGroup>
+
+    <MSBuild.ExtensionPack.Framework.AssemblyInfo AssemblyInfoFiles="@(AssemblyInfoFiles)"
+                                              AssemblyFileMajorVersion="5"
+                                              AssemblyFileMinorVersion="10" />
+
+  </Target>
+
+  <Target Name="Deploy" DependsOnTargets="RunTests">
+    
+    <!-- make the pysical dir if it isn't there -->
+    <MakeDir Directories="$(DeployDir)" Condition="!Exists($(DeployDir))" />
+
+    <ItemGroup>
+      <Application Include="/$($(AppName))">
+        <PhysicalPath>$(DeployDir)</PhysicalPath>
+        <AppPool>$(AppPoolName)</AppPool>
+      </Application>
+
+    </ItemGroup>
+
+    <MSBuild.ExtensionPack.Web.Iis7Website TaskAction="AddApplication"
+                                           Name="Default Web Site"
+                                           Applications="@(Application)"
+                                           ContinueOnError="true"/>
+
+    <!-- stop IIS -->
+    <MSBuild.ExtensionPack.Web.Iis7Website TaskAction="Stop" Name="$(WebSiteName)"/>
+
+    <!-- copy physical files -->
+    <MSBuild.ExtensionPack.FileSystem.RoboCopy Source="$(OutputPathWebFiles)" Destination="$(DeployDir)" Files="*.*" Options="/E /PURGE" />
+
+    <!-- start IIS -->
+    <MSBuild.ExtensionPack.Web.Iis7Website TaskAction="Start" Name="$(WebSiteName)"/>
+
+  </Target>
+
+  <Import Project="Common.targets"/>
+  <Import Project="PsBuildTasks.tasks"/>
+  <Import Project="C:\Program Files\MSBuild\ExtensionPack\4.0\MSBuild.ExtensionPack.tasks"/>
+
+</Project>
