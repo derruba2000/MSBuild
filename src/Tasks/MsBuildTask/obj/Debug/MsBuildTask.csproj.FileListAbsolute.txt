@@ -1,0 +1,6 @@
+C:\Src\MSBuild\src\Tasks\MsBuildTask\bin\Debug\MsBuildTask.dll
+C:\Src\MSBuild\src\Tasks\MsBuildTask\bin\Debug\MsBuildTask.pdb
+C:\Src\MSBuild\src\Tasks\MsBuildTask\obj\Debug\MsBuildTask.csprojAssemblyReference.cache
+C:\Src\MSBuild\src\Tasks\MsBuildTask\obj\Debug\MsBuildTask.csproj.CoreCompileInputs.cache
+C:\Src\MSBuild\src\Tasks\MsBuildTask\obj\Debug\MsBuildTask.dll
+C:\Src\MSBuild\src\Tasks\MsBuildTask\obj\Debug\MsBuildTask.pdb

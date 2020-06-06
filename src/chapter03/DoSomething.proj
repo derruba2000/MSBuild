@@ -6,6 +6,7 @@
       <FilestoZip Include="C:\Temp\PicsPath\*.*"/>
     </ItemGroup>
 
+    <Message Text="Program Files:$(ProgramFiles), $(MSBuildExtensionsPath64)"></Message>
     <MSBuild.ExtensionPack.Compression.DNZip
         TaskAction="Create"
         CompressFiles="@(FilestoZip)"

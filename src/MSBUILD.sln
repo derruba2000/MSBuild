@@ -22,10 +22,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter02", "Chapter02", "{
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter03", "Chapter03", "{408412C9-1823-4E0D-BF1C-6ABE5B643EFE}"
+	ProjectSection(SolutionItems) = preProject
+		chapter03\args.rsp = chapter03\args.rsp
+		chapter03\Common.props = chapter03\Common.props
+		chapter03\Common.targets = chapter03\Common.targets
+		chapter03\DoSomething.proj = chapter03\DoSomething.proj
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TaskAssembly", "TaskAssembly", "{FEC37AA1-F15B-4072-BF0F-C2FB01AB94BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsBuildTask", "Tasks\MsBuildTask\MsBuildTask.csproj", "{ECF70272-C4E9-40FD-A383-6B7461D9DDA2}"
 EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECF70272-C4E9-40FD-A383-6B7461D9DDA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECF70272-C4E9-40FD-A383-6B7461D9DDA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECF70272-C4E9-40FD-A383-6B7461D9DDA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECF70272-C4E9-40FD-A383-6B7461D9DDA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ECF70272-C4E9-40FD-A383-6B7461D9DDA2} = {FEC37AA1-F15B-4072-BF0F-C2FB01AB94BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {654CF2DC-4D03-4AB2-B46E-9652A995EF9E}
